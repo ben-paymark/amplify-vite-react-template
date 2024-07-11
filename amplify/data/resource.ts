@@ -1,4 +1,5 @@
 import { type ClientSchema, a, defineData } from "@aws-amplify/backend";
+import { aws_amplify as amplify } from 'aws-cdk-lib';
 
 /*== STEP 1 ===============================================================
 The section below creates a Todo database table with a "content" field. Try
@@ -27,6 +28,10 @@ export const data = defineData({
   },
 });
 
+export const environmentVariableProperty: amplify.CfnApp.EnvironmentVariableProperty = {
+  name: 'name',
+  value: 'value',
+};
 /*== STEP 2 ===============================================================
 Go to your frontend source code. From your client-side code, generate a
 Data client to make CRUDL requests to your table. (THIS SNIPPET WILL ONLY
